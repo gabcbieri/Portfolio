@@ -22,7 +22,7 @@ function enviarMensagem(event) {
     event.preventDefault(); 
     const nome = document.getElementById('nome').value; 
     const mensagem = document.getElementById('mensagem').value;  
-    const telefone = '5541997525244'; 
+    const telefone = '5541997231866'; 
     
     const texto = `Olá, meu nome é ${nome} e ${mensagem}.`; 
     const mgsFormatada = encodeURIComponent(texto); 

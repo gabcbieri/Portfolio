@@ -2,15 +2,17 @@ document.addEventListener('DOMContentLoaded', () => {
     const menuIcon = document.getElementById('menu-icon');
     const menu = document.getElementById('menu');
     const menuLinks = document.querySelectorAll('.menu-link');
-    const nav = document.querySelector('.navegacao'); 
+    const nav = document.querySelector('.navegacao');
+    const overlay = document.getElementById('overlay');
 
     function toggleMenu() {
         menu.classList.toggle('show');
+        overlay.classList.toggle('show'); 
 
         if (menu.classList.contains('show')) {
             menuIcon.innerHTML = '&times;'; 
         } else {
-            menuIcon.innerHTML = '&#9776;'; 
+            menuIcon.innerHTML = '&#9776;';
         }
     }
 
@@ -21,7 +23,7 @@ document.addEventListener('DOMContentLoaded', () => {
             e.preventDefault(); 
 
             const targetId = this.getAttribute('href').substring(1); 
-            const targetElement = document.getElementById(targetId); 
+            const targetElement = document.getElementById(targetId);  
 
             if (targetElement) {
                 const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
@@ -33,10 +35,13 @@ document.addEventListener('DOMContentLoaded', () => {
                 });
 
                 if (window.innerWidth <= 768) {
-                    toggleMenu();
+                    toggleMenu(); 
                 }
             }
         });
+    });
+    overlay.addEventListener('click', () => {
+        toggleMenu();
     });
 });
 

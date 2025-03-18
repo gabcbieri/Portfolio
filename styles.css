@@ -9,6 +9,11 @@ html {
     scroll-behavior: smooth;
 } 
 
+.no-scroll {
+    overflow: hidden;
+    height: 100vh;
+}
+
 :root{
     --primary-color: #4f46e5;
     --secondary-color: #7c3aed;

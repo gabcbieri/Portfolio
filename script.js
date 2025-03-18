@@ -1,22 +1,33 @@
-document.addEventListener("DOMContentLoaded", function () {
-    const links = document.querySelectorAll("nav a[href^='#']"); 
-    
-    links.forEach(link => {
-        link.addEventListener("click", function (event) {
-            event.preventDefault();
+const menuIcon = document.getElementById('menu-icon');  // Acessa o ícone de menu
+const menu = document.getElementById('menu');  // Acessa o menu
 
-            const targetId = this.getAttribute("href").substring(1);
-            const targetElement = document.getElementById(targetId);
+// Evento para mostrar ou esconder o menu ao clicar no ícone
+menuIcon.addEventListener('click', () => {
+    menu.classList.toggle('show'); // Alterna a classe 'show' para mostrar ou esconder o menu
+});
 
-            if (targetElement) {
-                window.scrollTo({
-                    top: targetElement.offsetTop,
-                    behavior: "smooth"
-                });
-            }
+// Ação para rolar suavemente até as seções ao clicar nos links
+const menuLinks = document.querySelectorAll('.menu-link');  // Seleciona todos os links de menu
+menuLinks.forEach(link => {
+    link.addEventListener('click', (e) => {
+        e.preventDefault(); // Evita o comportamento padrão de navegação
+
+        const targetId = e.target.getAttribute('href').substring(1); // Obtém o ID do destino
+        const targetElement = document.getElementById(targetId); // Encontra o elemento com o ID correspondente
+        
+        const navHeight = document.querySelector('.navegacao').offsetHeight; // Obtém a altura da barra de navegação
+
+        // Rola suavemente até a seção correspondente, considerando a altura da barra de navegação
+        window.scrollTo({
+            top: targetElement.offsetTop - navHeight, // Ajuste de acordo com a altura da barra de navegação
+            behavior: 'smooth'  // Rolagem suave
         });
+
+        // Fecha o menu após clicar em um link
+        menu.classList.remove('show');
     });
 });
+
 
 function enviarMensagem(event) {
     event.preventDefault(); 

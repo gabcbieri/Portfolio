@@ -26,6 +26,7 @@ body {
 .navegacao{
     position: fixed;
     top: 0;
+    left: 0;
     background-color: var(--escuro);
     width: 100%;
     z-index: 100;
@@ -47,6 +48,56 @@ body {
     padding: 1.5rem 0;
 }
 
+.menu-icon {
+    display: none;
+    font-size: 30px;
+    color: white;
+    cursor: pointer;
+}
+
+/* Barra de navegação padrão */
+.navegacao {
+    position: fixed;
+    top: 0;
+    left: 0;
+    background-color: var(--escuro); /* Cor padrão da barra de navegação */
+    width: 100%;
+    z-index: 100;
+    padding: 1.5rem;
+}
+
+/* Responsividade - quando a tela for 555px ou menor */
+@media (max-width: 556px) {
+    .navegacao {
+        background-color: transparent; /* Remove a cor da barra, deixando o fundo transparente */
+    }
+
+    .menu-icon {
+        display: block; /* Exibe o ícone de menu */
+    }
+
+    .menu {
+        display: none; /* Inicialmente o menu está escondido */
+        position: fixed; /* Fixa o menu na tela */
+        top: 0;
+        left: -100%; /* O menu começa fora da tela, à esquerda */
+        width: 100%;
+        height: 100vh; /* O menu vai cobrir toda a altura da tela */
+        background-color: var(--escuro); /* Cor do fundo do menu */
+        flex-direction: column;
+        gap: 10px;
+        padding: 20px;
+        transition: left 0.3s ease-in-out; /* Transição suave para o menu aparecer */
+    }
+
+    /* Quando o menu estiver visível (com a classe 'show') */
+    .menu.show {
+        display: flex; /* Exibe o menu */
+        left: 0; /* Move o menu para a posição normal (0px) */
+    }
+}
+
+
 .menu-link::after{
     content: '';
     height: 2px;
@@ -62,8 +113,13 @@ body {
     width: 100%;
 }
 
+.menu.show {
+    display: flex;
+    background-color: var(--escuro);  /* Garante que o fundo não mude */
+}
+
 .cabecalho {
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -97,7 +153,7 @@ h1 {
 
 .sobre{
     padding: 6rem 2rem;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -129,7 +185,7 @@ h1 {
 
 .projetos{
     padding: 6rem 2rem;
-    min-height: 100vh;
+    min-height: auto;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -168,6 +224,31 @@ h1 {
     cursor: pointer;
 }
 
+@media (max-width: 1200px) {
+    .projetos-caixa {
+        display: flex;
+        flex-direction: column; 
+        align-items: center; 
+        width: 100%; 
+    }
+}
+
+@media (max-width: 400px) {
+    .projetos-imagem {
+        display: none;
+    }
+}
+
+@media (max-width: 444px) {
+    .cabecalho-subtitulo {
+        text-align: center; 
+    }
+
+    .front {
+        display: block;
+    }
+}
+
 .projetos-card:hover{
     box-shadow: 0 10px 20px rgba(79, 70, 229, 0.2);
     transform: translateY(-10px) scale(1.03);
@@ -190,6 +271,7 @@ h1 {
 
 .contatos{
     padding: 6rem 2rem;
+    min-height: auto;
 }
 
 .contatos-titulo{
@@ -244,23 +326,12 @@ h1 {
     box-shadow: 0 5px 10px rgba(79, 70, 229, 0.4);
 }
 
-/*.particulas{
-    position: fixed;
-    top: 0%;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    z-index: -1;   
-    opacity: 0.2;
-    background: radial-gradient(circle at 10% 20%, var(--primary-color) 0%, transparent 20%), radial-gradient(circle at 90% 80%, var(--secondary-color) 0%, transparent 20%, var(--mais-escuro));
-}*/
-
 @keyframes flutuar {
     0%, 100%{
-        transform: translateY(0);
+        transform: translatex(0);
     }
 
     50%{
-        transform: translateY(-20px);
+        transform: translatex(-20px);
     }
 }

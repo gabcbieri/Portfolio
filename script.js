@@ -1,33 +1,44 @@
-const menuIcon = document.getElementById('menu-icon');  // Acessa o ícone de menu
-const menu = document.getElementById('menu');  // Acessa o menu
+document.addEventListener('DOMContentLoaded', () => {
+    const menuIcon = document.getElementById('menu-icon');
+    const menu = document.getElementById('menu');
+    const menuLinks = document.querySelectorAll('.menu-link');
+    const nav = document.querySelector('.navegacao'); 
 
-// Evento para mostrar ou esconder o menu ao clicar no ícone
-menuIcon.addEventListener('click', () => {
-    menu.classList.toggle('show'); // Alterna a classe 'show' para mostrar ou esconder o menu
-});
+    function toggleMenu() {
+        menu.classList.toggle('show');
 
-// Ação para rolar suavemente até as seções ao clicar nos links
-const menuLinks = document.querySelectorAll('.menu-link');  // Seleciona todos os links de menu
-menuLinks.forEach(link => {
-    link.addEventListener('click', (e) => {
-        e.preventDefault(); // Evita o comportamento padrão de navegação
+        if (menu.classList.contains('show')) {
+            menuIcon.innerHTML = '&times;'; 
+        } else {
+            menuIcon.innerHTML = '&#9776;'; 
+        }
+    }
 
-        const targetId = e.target.getAttribute('href').substring(1); // Obtém o ID do destino
-        const targetElement = document.getElementById(targetId); // Encontra o elemento com o ID correspondente
-        
-        const navHeight = document.querySelector('.navegacao').offsetHeight; // Obtém a altura da barra de navegação
+    menuIcon.addEventListener('click', toggleMenu);
 
-        // Rola suavemente até a seção correspondente, considerando a altura da barra de navegação
-        window.scrollTo({
-            top: targetElement.offsetTop - navHeight, // Ajuste de acordo com a altura da barra de navegação
-            behavior: 'smooth'  // Rolagem suave
+    menuLinks.forEach(link => {
+        link.addEventListener('click', function (e) {
+            e.preventDefault(); 
+
+            const targetId = this.getAttribute('href').substring(1); 
+            const targetElement = document.getElementById(targetId); 
+
+            if (targetElement) {
+                const targetPosition = targetElement.getBoundingClientRect().top + window.scrollY;
+                const navHeight = nav.offsetHeight; 
+
+                window.scrollTo({
+                    top: targetPosition - navHeight,
+                    behavior: 'smooth'
+                });
+
+                if (window.innerWidth <= 768) {
+                    toggleMenu();
+                }
+            }
         });
-
-        // Fecha o menu após clicar em um link
-        menu.classList.remove('show');
     });
 });
-
 
 function enviarMensagem(event) {
     event.preventDefault(); 
@@ -35,7 +46,7 @@ function enviarMensagem(event) {
     const mensagem = document.getElementById('mensagem').value;  
     const telefone = '5541997231866'; 
     
-    const texto = `Olá, meu nome é ${nome} e ${mensagem}.`; 
+    const texto = `Olá, meu nome é ${nome}. ${mensagem}.`; 
     const mgsFormatada = encodeURIComponent(texto); 
     
     const url = `https://wa.me/${telefone}?text=${mgsFormatada}`;  

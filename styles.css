@@ -27,10 +27,10 @@ body {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--escuro);
     width: 100%;
+    background-color: var(--escuro);
     z-index: 100;
-    padding: 1.5rem;
+    padding: 1rem;
 }
 
 .menu{
@@ -45,58 +45,70 @@ body {
     color: var(--claro);
     font-weight: 500;
     position: relative;
-    padding: 1.5rem 0;
+    padding: 1rem 0;
+}
+
+.menu.show {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    position: absolute;
+    background: var(--escuro);
+    top: 60px;
+    left: 0;
+    width: 100%;
+    padding: 20px;
 }
 
 .menu-icon {
     display: none;
-    font-size: 30px;
-    color: white;
-    cursor: pointer;
 }
 
-/* Barra de navegação padrão */
 .navegacao {
     position: fixed;
     top: 0;
     left: 0;
-    background-color: var(--escuro); /* Cor padrão da barra de navegação */
+    background-color: var(--escuro); 
     width: 100%;
     z-index: 100;
     padding: 1.5rem;
 }
 
-/* Responsividade - quando a tela for 555px ou menor */
 @media (max-width: 556px) {
     .navegacao {
-        background-color: transparent; /* Remove a cor da barra, deixando o fundo transparente */
+        background-color: transparent;
     }
 
     .menu-icon {
-        display: block; /* Exibe o ícone de menu */
+        display: block; 
+        position: absolute;
+        top: 15px;
+        right: 20px;
+        font-size: 30px;
+        color: white;
+        cursor: pointer;
+        z-index: 110; 
     }
 
     .menu {
-        display: none; /* Inicialmente o menu está escondido */
-        position: fixed; /* Fixa o menu na tela */
+        display: none; 
+        position: fixed;
         top: 0;
-        left: -100%; /* O menu começa fora da tela, à esquerda */
+        left: 0;
         width: 100%;
-        height: 100vh; /* O menu vai cobrir toda a altura da tela */
-        background-color: var(--escuro); /* Cor do fundo do menu */
+        height: 100vh;
+        background-color: var(--escuro);
         flex-direction: column;
+        align-items: center;
+        justify-content: center;
         gap: 10px;
-        padding: 20px;
-        transition: left 0.3s ease-in-out; /* Transição suave para o menu aparecer */
+        transition: left 0.3s ease-in-out;
     }
 
-    /* Quando o menu estiver visível (com a classe 'show') */
     .menu.show {
-        display: flex; /* Exibe o menu */
-        left: 0; /* Move o menu para a posição normal (0px) */
+        display: flex;
     }
 }
-
 
 .menu-link::after{
     content: '';
@@ -115,7 +127,7 @@ body {
 
 .menu.show {
     display: flex;
-    background-color: var(--escuro);  /* Garante que o fundo não mude */
+    background-color: var(--escuro); 
 }
 
 .cabecalho {
@@ -165,7 +177,7 @@ h1 {
     font-size: 2.5rem;
     color: var(--claro);
     text-align: center;
-    margin-bottom: 2px;
+    margin-bottom: 5px;
 }
 
 .sobre-caixa{
@@ -199,9 +211,8 @@ h1 {
     margin-bottom: 50px;
 }
 
-
 .projetos-imagem{
-    height: 200px;
+    height: 150px;
     width: 100%;
     object-fit: cover;
 }
@@ -224,7 +235,7 @@ h1 {
     cursor: pointer;
 }
 
-@media (max-width: 1200px) {
+@media (max-width: 1070px) {
     .projetos-caixa {
         display: flex;
         flex-direction: column; 

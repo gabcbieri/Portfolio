@@ -26,7 +26,7 @@ body {
 .navegacao{
     position: fixed;
     top: 0;
-    background-color: rgba(15, 23, 42, 0.8);
+    background-color: var(--escuro);
     width: 100%;
     z-index: 100;
     padding: 1.5rem;
@@ -244,7 +244,7 @@ h1 {
     box-shadow: 0 5px 10px rgba(79, 70, 229, 0.4);
 }
 
-.particulas{
+/*.particulas{
     position: fixed;
     top: 0%;
     left: 0;
@@ -253,7 +253,7 @@ h1 {
     z-index: -1;   
     opacity: 0.2;
     background: radial-gradient(circle at 10% 20%, var(--primary-color) 0%, transparent 20%), radial-gradient(circle at 90% 80%, var(--secondary-color) 0%, transparent 20%, var(--mais-escuro));
-}
+}*/
 
 @keyframes flutuar {
     0%, 100%{

@@ -135,6 +135,34 @@ body {
     background-color: var(--escuro); 
 }
 
+.github {
+    list-style: none; 
+    padding: 0;
+    margin-top: 15px; 
+}
+
+.link-github {
+    text-decoration: none;
+    display: inline-block;
+    color: var(--claro);
+    background: var(--mais-escuro);
+    padding: 15px 70px;
+    margin: 10px;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    width: auto;
+    text-align: center;
+    transition: all 0.3s ease-in-out; 
+}
+
+.link-github:hover {
+    box-shadow: 0 8px 16px rgba(79, 70, 229, 0.2); 
+    transform: translateY(-5px) scale(1.03);
+    background: var(--mais-escuro);
+    filter: brightness(1.1);
+}
+
+
 .cabecalho {
     min-height: 100vh;
     display: flex;
@@ -146,8 +174,8 @@ body {
 }
 
 .foto-perfil {
-    width: 300px;
-    height: 300px;
+    width: 200px;
+    height: 200px;
     object-fit: cover;
     box-shadow: 0 0 20px rgba(79, 70, 229, 0.3);
     border-radius: 50%;
@@ -155,17 +183,16 @@ body {
     animation: flutuar 5s ease-in-out infinite;
 }
 
-h1 {
-    font-size: 3.5rem;
+.cabecalho-titulo {
+    font-size: 2.5rem;
     color: var(--claro);
-    font-weight: bold;
     margin: 20px 0;
 }
 
 .cabecalho-subtitulo {
-    font-size: 1.5rem;
+    font-size: 1.2rem;
     color: var(--claro);
-    max-width: 80%;
+    max-width: 100%;
 }
 
 .sobre{
@@ -343,10 +370,10 @@ h1 {
 
 @keyframes flutuar {
     0%, 100%{
-        transform: translatex(0);
+        transform: translateY(0);
     }
 
     50%{
-        transform: translatex(-20px);
+        transform: translateY(-20px);
     }
 }

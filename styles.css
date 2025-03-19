@@ -76,18 +76,13 @@ body {
     background-color: var(--escuro); 
     width: 100%;
     z-index: 100;
-    padding: 1.5rem;
 }
 
 @media (max-width: 556px) {
-    .navegacao {
-        background-color: transparent;
-    }
-
     .menu-icon {
         display: block; 
         position: absolute;
-        top: 15px;
+        top: 0px;
         right: 20px;
         font-size: 30px;
         color: white;
@@ -197,7 +192,7 @@ body {
 
 .sobre{
     padding: 6rem 2rem;
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -229,7 +224,7 @@ body {
 
 .projetos{
     padding: 6rem 2rem;
-    min-height: 100vh;
+    min-height: 80vh;
     display: flex;
     justify-content: center;
     align-items: center;

@@ -208,7 +208,7 @@ body {
 }
 
 .sobre-caixa{
-    padding: 2rem;
+    padding: 1.5rem;
     max-width: 800px;
     margin: 0 auto;
     border-radius: 16px;
@@ -219,7 +219,7 @@ body {
 
 .sobre-paragrafo{
     text-align: center;
-    font-size: 1.2rem;
+    font-size: 1rem;
 }
 
 .projetos{
@@ -306,6 +306,12 @@ body {
 .info-projetos{
     margin-bottom: 5px;
 }
+
+.info-projetos a {
+    text-decoration: none; /* remove o sublinhado */
+    color: inherit;         /* herda a cor do h3 */
+}
+
 
 .contatos{
     padding: 6rem 2rem;

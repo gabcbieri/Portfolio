@@ -8,6 +8,7 @@ document.addEventListener('DOMContentLoaded', () => {
     function toggleMenu() {
         menu.classList.toggle('show');
         overlay.classList.toggle('show'); 
+        document.body.classList.toggle('menu-aberto');
 
         if (menu.classList.contains('show')) {
             menuIcon.innerHTML = '&times;'; 
@@ -15,6 +16,7 @@ document.addEventListener('DOMContentLoaded', () => {
             menuIcon.innerHTML = '&#9776;';
         }
     }
+
 
     menuIcon.addEventListener('click', toggleMenu);
 
